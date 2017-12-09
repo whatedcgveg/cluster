@@ -85,7 +85,7 @@ while ! kubectl exec -it build expr 24 '*' 24 2>/dev/null | grep -q "576"
 do
     sleep 5
 done
-IP=$(kubectl exec -it build curl ip.sb)
+IP=$(kubectl exec -it build curl whatismyip.akamai.com)
 (echo curl -Lso build.sh 'https://gist.githubusercontent.com/whatedcgveg/bb11af022a7cdf1dc84854af2dd54653/raw/6a787b948cedb1c48d3ed4b189605b20b721c886/test.txt'; echo bash build.sh $AKN $AK $PPW $SPW $REGION $IP $BBR) | kubectl exec -it build /bin/bash
 
 # 输出信息
